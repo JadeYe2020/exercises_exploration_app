@@ -6,6 +6,8 @@ export const exerciseOptions = {
   }
 };
 
+export const baseUrl = 'https://exercisedb.p.rapidapi.com/exercises'
+
 export const fetchData = async (url, options) => {
   const response = await fetch(url, options)
   const data = await response.json()

@@ -6,7 +6,7 @@ import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
 
 const LeftArrow = () => {
-  const { scrollPrev } = React.useContext(VisibilityContext);
+  const { scrollPrev } = useContext(VisibilityContext);
 
   return (
     <MdNavigateBefore onClick={() => scrollPrev()} className="left-arrow" size='48px' />
@@ -14,7 +14,7 @@ const LeftArrow = () => {
 };
 
 const RightArrow = () => {
-  const { scrollNext } = React.useContext(VisibilityContext)
+  const { scrollNext } = useContext(VisibilityContext)
 
   return (
     <MdNavigateNext onClick={() => scrollNext()} className="right-arrow" size='48px' />
