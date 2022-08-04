@@ -1,7 +1,36 @@
 import { useState, useEffect } from 'react'
+import HorizontalScrollbar from './HorizontalScrollbar'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
+import { exerciseOptions, fetchData } from '../utils/fetchData'
 
-const Search = () => {
+const Search = ({ setExercises, bodyPart, setBodyPart }) => {
+  const [keyword, setKeyword] = useState('')  
+  const [bodyParts, setBodyParts] = useState([])
+  const baseUrl = 'https://exercisedb.p.rapidapi.com/exercises'
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData(`${baseUrl}/bodyPartList`, exerciseOptions)
+
+      setBodyParts(['all', ...bodyPartsData])
+    }
+    fetchExercisesData()
+  }, [])
+
+  const handleSearch = async () => {
+    if (keyword) {
+      const exercisesData = await fetchData(baseUrl, exerciseOptions)
+      const searchedExercises = exercisesData.filter((exercise) => 
+        exercise.name.toLowerCase().includes(keyword) ||
+        exercise.target.toLowerCase().includes(keyword) ||
+        exercise.equipment.toLowerCase().includes(keyword) ||
+        exercise.bodyPart.toLowerCase().includes(keyword)
+      )
+      
+      setExercises(searchedExercises)
+    }
+  }
+
   return (
     <Stack alignItems='center' mt='37px' justifyContent='center' p='20px'>
       <Typography fontWeight={700} mb='50px' textAlign='center' sx={{
@@ -13,8 +42,8 @@ const Search = () => {
       <Box position='relative' mb='72px'>
         <TextField 
           type='text'
-          value=''
-          onChange={(e) => {}}
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value.toLowerCase())}
           placeholder='Search Exercises'
           height='76px'
           sx={{
@@ -28,7 +57,9 @@ const Search = () => {
             borderRadius: '40px'
           }}
         />
-        <Button className='search-btn' sx={{
+        <Button className='search-btn' 
+          onClick={handleSearch}
+          sx={{
           backgroundColor: '#1a535c',
           color: '#FFF',
           textTransform: 'none',
@@ -40,6 +71,14 @@ const Search = () => {
         }}>
           Search
         </Button>
+      </Box>
+      <Box sx={{ position: 'relative', width: '100%', p: '20px' }}>
+          <HorizontalScrollbar
+            data={bodyParts}
+            bodyPart={bodyPart}
+            setBodyPart={setBodyPart}
+          />
+
       </Box>
     </Stack>
   )
