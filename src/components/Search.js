@@ -44,6 +44,7 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
           type='text'
           value={keyword}
           onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          onKeyUp={(e) => { if (e.key === 'Enter') {handleSearch()}}}     
           placeholder='Search Exercises'
           height='76px'
           sx={{
