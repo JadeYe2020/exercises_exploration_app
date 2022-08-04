@@ -10,6 +10,7 @@ const BodyParts = ({ item, setBodyPart, bodyPart }) => {
       type='button'
       onClick={() => {
         setBodyPart(item)
+        // scroll down to specific type of exercises
         window.scrollTo({top: 1800, left: 100, behavior: 'smooth'})
       }}
       alignItems='center'
