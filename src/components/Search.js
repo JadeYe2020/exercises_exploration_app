@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import HorizontalScrollbar from './HorizontalScrollbar'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
-import { exerciseOptions, fetchData } from '../utils/fetchData'
+import { apiOptions, fetchData } from '../utils/fetchData'
 
 const Search = ({ setExercises, bodyPart, setBodyPart }) => {
   const [keyword, setKeyword] = useState('')  
@@ -10,7 +10,7 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData(`${baseUrl}/bodyPartList`, exerciseOptions)
+      const bodyPartsData = await fetchData(`${baseUrl}/bodyPartList`, apiOptions)
 
       setBodyParts(['all', ...bodyPartsData])
     }
@@ -19,7 +19,7 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
 
   const handleSearch = async () => {
     if (keyword) {
-      const exercisesData = await fetchData(baseUrl, exerciseOptions)
+      const exercisesData = await fetchData(baseUrl, apiOptions)
       const searchedExercises = exercisesData.filter((exercise) => 
         exercise.name.toLowerCase().includes(keyword) ||
         exercise.target.toLowerCase().includes(keyword) ||

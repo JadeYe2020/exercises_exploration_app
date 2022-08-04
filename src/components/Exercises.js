@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { exerciseOptions, fetchData, baseUrl } from '../utils/fetchData'
+import { apiOptions, fetchData, baseUrl } from '../utils/fetchData'
 import ExerciseCard from './ExerciseCard'
 import { Pagination, Box, Stack, Typography } from "@mui/material"
 
@@ -21,9 +21,9 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       let exercisesData = []
 
       if (bodyPart === 'all') {
-        exercisesData = await fetchData(`${baseUrl}`, exerciseOptions)
+        exercisesData = await fetchData(`${baseUrl}`, apiOptions)
       } else {
-        exercisesData = await fetchData(`${baseUrl}/bodyPart/${bodyPart}`, exerciseOptions)
+        exercisesData = await fetchData(`${baseUrl}/bodyPart/${bodyPart}`, apiOptions)
       }
 
       // console.log('exercisesData in Exercises comp', exercisesData)
