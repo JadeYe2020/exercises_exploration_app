@@ -34,8 +34,8 @@ const Detail = ({ exerciseDetail }) => {
         </Typography>
         {detailListIcons.map((item, index) => (
           <Stack key={index} direction='row' alignItems='center' gap='24px'>
-            <Button sx={{ background: '#FFE66D', borderRadius: '50%', width: '100px', height: '100px'}}>
-              <img src={item.icon} alt={bodyPart} style={{ width: '50px', height: '50px'}} />
+            <Button sx={{ background: '#FFE66D', borderRadius: '50%', width: '80px', height: '80px'}}>
+              <img src={item.icon} alt={bodyPart} style={{ width: '40px', height: '40px'}} />
             </Button>
             <Typography variant='h6' textTransform='capitalize'>
               {item.name}

@@ -25,21 +25,18 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       } else {
         exercisesData = await fetchData(`${baseUrl}/bodyPart/${bodyPart}`, apiOptions)
       }
-
-      // console.log('exercisesData in Exercises comp', exercisesData)
-
       setExercises(exercisesData)
     }
     fetchExercisesData()    
 
-  }, [bodyPart])
+  }, [bodyPart, setExercises])
 
   return (
     <Box id='exercises' mt='50px' p='20px'
       sx={{mt: { lg: '110px' }}}
     >
       <Typography variant='h3' mb='46px'>
-        Showing Resultes
+        Showing Results
       </Typography>
       <Stack direction='row' flexWrap='wrap' justifyContent='center'
         sx={{ gap: { lg: '110px', xs: '50px' } }}

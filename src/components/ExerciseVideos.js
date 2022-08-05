@@ -5,7 +5,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
   const numOfVideos = 6
 
   return (
-    <Box p='20px' sx={{ marginTop: { lg: '200px', xs: '20px' }}}>
+    <Box p='20px' sx={{ marginTop: { lg: '100px', xs: '20px' }}}>
       <Typography variant='h4' mb='33px'>
         Watch some {` `}
         <a href={`https://www.youtube.com/results?search_query=${name}`}
@@ -17,8 +17,8 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
       </Typography>
       <Stack justifyContent='flex-start' flexWrap='wrap' alignment='center'
         sx={{
-          flexDirection: { lg: 'row' },
-          gap: { lg: '110px', xs: '0' }
+          flexDirection: 'row',
+          gap: '10px 80px'
         }}
       >
         {exerciseVideos?.slice(0, numOfVideos).map((item, index) => (
