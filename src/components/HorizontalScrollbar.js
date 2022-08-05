@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import BodyParts from './BodyParts'
+import ExerciseCard from './ExerciseCard'
 import { Box } from '@mui/material'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
@@ -21,7 +22,7 @@ const RightArrow = () => {
   );
 };
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
+const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue }) => {
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>        
       { data.map((item) => (
@@ -31,7 +32,11 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
           title={item.id || item}
           m='0 40px'
         >
-          <BodyParts item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+          { isCatalogue ?
+            <BodyParts item={item} bodyPart={bodyPart} setBodyPart={setBodyPart} />
+            : <ExerciseCard exercise={item} />
+          }
+          
         </Box>
       ) ) }        
     </ScrollMenu>    

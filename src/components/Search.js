@@ -78,6 +78,7 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
             data={bodyParts}
             bodyPart={bodyPart}
             setBodyPart={setBodyPart}
+            isCatalogue='true'
           />
 
       </Box>
