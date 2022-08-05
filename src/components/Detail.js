@@ -7,7 +7,7 @@ import EquipmentImg from '../assets/icons/equipment.png'
 const Detail = ({ exerciseDetail }) => {
   const { bodyPart, gifUrl, name, target, equipment } = exerciseDetail
 
-  const extraDetail = [
+  const detailListIcons = [
     {
       icon: BodyPartImg,
       name: bodyPart,
@@ -32,8 +32,8 @@ const Detail = ({ exerciseDetail }) => {
         <Typography variant='h5'>
           Do this {target} exercise to target your {bodyPart}.
         </Typography>
-        {extraDetail.map((item) => (
-          <Stack key={item.name} direction='row' alignItems='center' gap='24px'>
+        {detailListIcons.map((item, index) => (
+          <Stack key={index} direction='row' alignItems='center' gap='24px'>
             <Button sx={{ background: '#FFE66D', borderRadius: '50%', width: '100px', height: '100px'}}>
               <img src={item.icon} alt={bodyPart} style={{ width: '50px', height: '50px'}} />
             </Button>
