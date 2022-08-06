@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stack, Typography } from '@mui/material'
 
-import Icon from '../assets/icons/gym.png'
+import Icon from '../assets/icons/muscle.png'
 
 const BodyParts = ({ item, setBodyPart, bodyPart }) => {
   return (
@@ -11,7 +11,7 @@ const BodyParts = ({ item, setBodyPart, bodyPart }) => {
       onClick={() => {
         setBodyPart(item)
         // scroll down to specific type of exercises
-        window.scrollTo({top: 1800, left: 100, behavior: 'smooth'})
+        window.location.href='#exercises'
       }}
       alignItems='center'
       justifyContent='center'
@@ -19,10 +19,10 @@ const BodyParts = ({ item, setBodyPart, bodyPart }) => {
         borderTop: bodyPart === item ? '4px solid #1a535c' : '',
         backgroundColor:'#fff',
         borderBottomLeftRadius: '20px',
-        width: '270px',
-        height: '280px',
+        width: '200px',
+        height: '200px',
         cursor: 'pointer',
-        gap: '47px'
+        gap: '30px'
       }}
     >
       <img src={Icon} alt='gymIcon' style={{ width: '40px', height: '40px'}} />

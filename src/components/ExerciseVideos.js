@@ -4,6 +4,8 @@ import { Box, Stack, Typography } from '@mui/material'
 const ExerciseVideos = ({ exerciseVideos, name }) => {
   const numOfVideos = 6
 
+  // console.log('exerciseVideos', exerciseVideos)
+
   return (
     <Box p='20px' sx={{ marginTop: { lg: '100px', xs: '20px' }}}>
       <Typography variant='h4' mb='33px'>
@@ -15,10 +17,11 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         </a>
         {` `} exercise videos
       </Typography>
-      <Stack justifyContent='flex-start' flexWrap='wrap' alignment='center'
+      <Stack direction='row' justifyContent='flex-start' flexWrap='wrap' alignItems='center'
         sx={{
           flexDirection: 'row',
-          gap: '10px 80px'
+          rowGap: '10px',
+          columnGap: '80px'
         }}
       >
         {exerciseVideos?.slice(0, numOfVideos).map((item, index) => (
@@ -27,7 +30,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
             target="_blank"
             rel='noreferrer'
           >
-            <img src={item.video.thumbnails[0].url} alt='thumbnail of {item.video.title}' />
+            <img src={item.video.thumbnails[0].url} alt='thumbnail of {item.video.title}' height='202' />
             <Box>
               <Typography variant='h5' color='#1A535C'>
                 {item.video.title}
@@ -39,7 +42,6 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
           </a>
         ))}
       </Stack>
-
     </Box>
   )
 }

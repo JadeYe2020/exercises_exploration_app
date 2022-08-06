@@ -32,12 +32,11 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
   }
 
   return (
-    <Stack alignItems='center' mt='37px' justifyContent='center' p='20px'>
+    <Stack id='searchBox' alignItems='center' mt='37px' justifyContent='center' p='20px'>
       <Typography fontWeight={700} mb='50px' textAlign='center' sx={{
         fontSize: { lg: '44px', xs: '30px' }        
       }}>
-        Awesome Exercises You <br />
-        Should Know
+        Explore exercises
       </Typography>
       <Box position='relative' mb='72px'>
         <TextField 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Stack } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
 import Logo from '../assets/images/Logo.png';
 
@@ -8,33 +8,44 @@ const Navbar = () => {
   return (
     <Stack direction='row' justifyContent='space-around' px='20px'
       sx={{ 
-        gap: {sm: '122px', xs: '40px'}, 
+        gap: {sm: '100px', xs: '20px'}, 
         mt: { sm: '32px', xs: '20px'},
         justifyContent: 'none'
       }}
     >
       <Link to='/'>
         <img src={Logo} alt='logo' style={{
-          width: '48px', 
-          height: '48px', 
-          margin: '0 20px'
+          width: '60px'
         }} />
       </Link>
       <Stack
         direction='row'
-        gap='40px'
+        gap='30px'
         fontSize='24px'
         alignItems='flex-end'
+        sx={{ 
+          gap: { sm: '30px', xs: '10px' }
+        }}
       >
         <Link to='/' style={{
           textDecoration: 'none',
-          color: '#3A1212',
-          borderBottom: '3px solid #1a535c'
-        }}>Home</Link>
+          color: '#3A1212'
+        }}>
+          <Typography variant='h6' component='h1'>Home</Typography>
+        </Link>
         <a href='#exercises' style={{
           textDecoration: 'none',
           color: '#3A1212'
-        }}>Exercises</a>
+        }}>
+          <Typography variant='h6' component='h1'>Exercises</Typography>
+        </a>
+        <a href='#searchBox' style={{
+          textDecoration: 'none',
+          color: '#3A1212'
+        }}>
+          <Typography variant='h6' component='h1'>Explore</Typography>
+        </a>
+        
       </Stack>
     </Stack>
   )
