@@ -3,7 +3,7 @@ import { Stack, Typography } from '@mui/material'
 
 import Icon from '../assets/icons/muscle.png'
 
-const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToShow, setKeyword }) => {
+const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToShow, setKeyword, setHasResults }) => {
   return (
     <Stack
       className='bodyPart-card'
@@ -18,6 +18,8 @@ const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToSh
         setExercisesToShow(filteredData)
         // reset searchbox
         setKeyword('')
+        // reset results section
+        setHasResults(true)
         // scroll down to specific type of exercises
         window.location.href='#exercises'
       }}

@@ -8,7 +8,8 @@ const Home = () => {
   const [bodyParts, setBodyParts] = useState([])
   const [bodyPart, setBodyPart] = useState('all')
   const [allExercises, setAllExercises] = useState([])
-  const [exercisesToShow, setExercisesToShow] = useState([])  
+  const [exercisesToShow, setExercisesToShow] = useState([])
+  const [hasResults, setHasResults] = useState(true)
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -30,8 +31,9 @@ const Home = () => {
         allExercises={allExercises}
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
+        setHasResults={setHasResults}
       />
-      <Exercises exercisesToShow={exercisesToShow} />
+      <Exercises exercisesToShow={exercisesToShow} hasResults={hasResults} />
     </Box>
   )
 }

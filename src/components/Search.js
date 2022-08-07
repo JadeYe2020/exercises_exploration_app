@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import HorizontalScrollbar from './HorizontalScrollbar'
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
-// import HeroBannerImage from '../assets/images/banner-transparent.png'
 
-const Search = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExercises }) => {
+const Search = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExercises, setHasResults }) => {
   const [keyword, setKeyword] = useState('')
 
   const handleSearch = async () => {
@@ -15,9 +14,14 @@ const Search = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExerc
         exercise.bodyPart.toLowerCase().includes(keyword)
       )
 
-      searchedExercises ? setExercisesToShow(searchedExercises) : setExercisesToShow([])
-      setBodyPart('all')
+      console.log('searchedExercises in Search.js', searchedExercises)
 
+      if (searchedExercises.length) {
+        setExercisesToShow(searchedExercises)
+        setHasResults(true)
+      } else { setHasResults(false) }
+
+      setBodyPart('all')
       window.location.href='#exercises'
     }
   }
@@ -71,6 +75,7 @@ const Search = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExerc
             allExercises={allExercises}
             setExercisesToShow={setExercisesToShow}
             setKeyword={setKeyword}
+            setHasResults={setHasResults}
             isCatalogue='true'
           />
       </Box>

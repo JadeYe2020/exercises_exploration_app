@@ -2,7 +2,7 @@ import Search from '../components/Search'
 import { Box, Typography } from '@mui/material'
 import HeroBannerImage from '../assets/images/banner-transparent.png'
 
-const HeroBanner = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExercises }) => {
+const HeroBanner = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExercises, setHasResults }) => {
   return (
     <Box className='banner' position='relative' mt='50px'
       sx={{
@@ -28,6 +28,7 @@ const HeroBanner = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allE
         allExercises={allExercises}
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
+        setHasResults={setHasResults}
       />
     </Box>
   )

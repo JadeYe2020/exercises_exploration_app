@@ -5,10 +5,8 @@ import { Box } from '@mui/material'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
 import { MdNavigateBefore, MdNavigateNext } from 'react-icons/md'
 
-
 const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
-
   return (
     <MdNavigateBefore onClick={() => scrollPrev()} className="left-arrow" size='48px' />
   );
@@ -16,13 +14,12 @@ const LeftArrow = () => {
 
 const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext)
-
   return (
     <MdNavigateNext onClick={() => scrollNext()} className="right-arrow" size='48px' />
   );
 };
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue, allExercises, setExercisesToShow, setKeyword }) => {
+const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue, allExercises, setExercisesToShow, setKeyword, setHasResults }) => {
   return (
     <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>        
       { data.map((item) => (
@@ -39,7 +36,9 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue, allExer
               setBodyPart={setBodyPart} 
               allExercises={allExercises} 
               setExercisesToShow={setExercisesToShow} 
-              setKeyword={setKeyword} />
+              setKeyword={setKeyword}
+              setHasResults={setHasResults}
+            />
             : <ExerciseCard exercise={item} />
           }          
         </Box>
