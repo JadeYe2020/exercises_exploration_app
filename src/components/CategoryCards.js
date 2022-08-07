@@ -3,7 +3,7 @@ import { Stack, Typography } from '@mui/material'
 
 import Icon from '../assets/icons/muscle.png'
 
-const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToShow, setKeyword, setHasResults }) => {
+const CategoryCards = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToShow, setKeyword, setHasResults }) => {
   return (
     <Stack
       className='bodyPart-card'
@@ -26,9 +26,8 @@ const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToSh
       alignItems='center'
       justifyContent='center'
       sx={{
-        borderTop: bodyPart === item ? '4px solid #1a535c' : '',
-        backgroundColor:'#fff',
-        borderBottomLeftRadius: '20px',
+        backgroundColor: bodyPart === item ? '#4ECDC4' : '#fff',
+        borderRadius: '10px',
         width: '200px',
         height: '200px',
         cursor: 'pointer',
@@ -43,4 +42,4 @@ const BodyParts = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToSh
   )
 }
 
-export default BodyParts
+export default CategoryCards

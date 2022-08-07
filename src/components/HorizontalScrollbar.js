@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import BodyParts from './BodyParts'
+import CategoryCards from './CategoryCards'
 import ExerciseCard from './ExerciseCard'
 import { Box } from '@mui/material'
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu'
@@ -30,7 +30,7 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue, allExer
           m='0 40px'
         >
           { isCatalogue ?
-            <BodyParts 
+            <CategoryCards 
               item={item} 
               bodyPart={bodyPart} 
               setBodyPart={setBodyPart} 

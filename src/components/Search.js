@@ -14,14 +14,12 @@ const Search = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allExerc
         exercise.bodyPart.toLowerCase().includes(keyword)
       )
 
-      console.log('searchedExercises in Search.js', searchedExercises)
-
       if (searchedExercises.length) {
         setExercisesToShow(searchedExercises)
         setHasResults(true)
       } else { setHasResults(false) }
 
-      setBodyPart('all')
+      setBodyPart('')
       window.location.href='#exercises'
     }
   }
