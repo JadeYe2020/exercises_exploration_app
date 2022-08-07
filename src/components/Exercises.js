@@ -34,8 +34,7 @@ const Exercises = ({ exercisesToShow, hasResults }) => {
               page={currentPage}
               onChange={paginate}
             />
-          )}
-  
+          )}  
         </Stack>
       </Box>
     )
