@@ -8,14 +8,18 @@ import { Box } from '@mui/material'
 const ExerciseDetail = ({ allExercises }) => {
   const [exerciseDetail, setExerciseDetail] = useState({})
   const [exerciseVideos, setExerciseVideos] = useState([])
-  const { id } = useParams()
+  const { id } = useParams()  
+
+  console.log('allExercises, in ExerciseDetail', allExercises)
   
   useEffect(() => {
     const fetchExerciseData = async () => {
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com'
 
       const exerciseDetailData = allExercises.find((exercise) => exercise.id === id)
-      // const exerciseDetailData = await fetchData(`${baseUrl}/exercise/${id}`, apiOptions)
+      
+      console.log('exerciseDetailData in ExerciseDetail', exerciseDetailData)
+      
       setExerciseDetail(exerciseDetailData)
 
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, videoApiOptions)
@@ -24,10 +28,12 @@ const ExerciseDetail = ({ allExercises }) => {
     }
     fetchExerciseData()
   }, [id, allExercises])
+
+  window.scrollTo({top: 0})
   
   return (
     <Box>
-      <Detail exerciseDetail={exerciseDetail} />
+      <Detail id='detail' exerciseDetail={exerciseDetail} />
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
     </Box>
   )

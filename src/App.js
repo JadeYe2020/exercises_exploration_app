@@ -21,7 +21,6 @@ const App = () => {
 
       const exercisesData = await fetchData(baseUrl, apiOptions)
       setAllExercises(exercisesData)
-      // setExercisesToShow(exercisesData)
     }
     fetchExercisesData()
   }, [setAllExercises])

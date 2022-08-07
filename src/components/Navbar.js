@@ -5,6 +5,10 @@ import { Stack, Typography } from '@mui/material';
 import Logo from '../assets/images/Logo.png';
 
 const Navbar = () => {
+  const textStyle = {
+    textDecoration: 'none',
+    color: '#3A1212'
+  }
   return (
     <Stack direction='row' justifyContent='space-around' px='20px'
       sx={{ 
@@ -27,18 +31,15 @@ const Navbar = () => {
           gap: { sm: '40px', xs: '20px' }
         }}
       >
-        <Link to='/' style={{
-          textDecoration: 'none',
-          color: '#3A1212'
-        }}>
-          <Typography variant='h6' component='h1'>Home</Typography>
+        <Link to='/' style={textStyle}>
+          <Typography fontWeight='bold' variant='h6' component='h1'>Home</Typography>
         </Link>
-        <a href='#exercises' style={{
-          textDecoration: 'none',
-          color: '#3A1212'
-        }}>
-          <Typography variant='h6' component='h1'>Exercises</Typography>
-        </a>        
+        <Link to='/#exercises' style={textStyle}>
+          <Typography onClick={() => window.location.href='#exercises'} 
+            fontWeight='bold' variant='h6' component='h1'>
+            Exercises
+          </Typography>
+        </Link>
       </Stack>
     </Stack>
   )
