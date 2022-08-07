@@ -1,8 +1,8 @@
-import Search from '../components/Search'
 import Exercises from '../components/Exercises'
 import { apiOptions, fetchData, baseUrl } from '../utils/fetchData'
 import { useState, useEffect } from 'react'
 import { Box } from '@mui/material'
+import HeroBanner from '../components/HeroBanner'
 
 const Home = () => {
   const [bodyParts, setBodyParts] = useState([])
@@ -24,7 +24,7 @@ const Home = () => {
 
   return (
     <Box>
-      <Search
+      <HeroBanner
         bodyParts={bodyParts}
         setExercisesToShow={setExercisesToShow}
         allExercises={allExercises}
