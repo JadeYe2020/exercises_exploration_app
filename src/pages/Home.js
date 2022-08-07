@@ -1,26 +1,37 @@
-import HeroBanner from '../components/HeroBanner'
 import Search from '../components/Search'
 import Exercises from '../components/Exercises'
-import { useState } from 'react'
+import { apiOptions, fetchData, baseUrl } from '../utils/fetchData'
+import { useState, useEffect } from 'react'
 import { Box } from '@mui/material'
 
 const Home = () => {
+  const [bodyParts, setBodyParts] = useState([])
   const [bodyPart, setBodyPart] = useState('all')
-  const [exercises, setExercises] = useState([])
+  const [allExercises, setAllExercises] = useState([])
+  const [exercisesToShow, setExercisesToShow] = useState([])  
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData(`${baseUrl}/bodyPartList`, apiOptions)
+      setBodyParts(['all', ...bodyPartsData])
+
+      const exercisesData = await fetchData(baseUrl, apiOptions)
+      setAllExercises(exercisesData)
+      setExercisesToShow(exercisesData)
+    }
+    fetchExercisesData()
+  }, [setAllExercises])
 
   return (
     <Box>
-      <HeroBanner />
       <Search
-        setExercises={setExercises}
+        bodyParts={bodyParts}
+        setExercisesToShow={setExercisesToShow}
+        allExercises={allExercises}
         bodyPart={bodyPart}
         setBodyPart={setBodyPart}
       />
-      <Exercises
-        setExercises={setExercises}
-        bodyPart={bodyPart}
-        exercises={exercises}
-      />
+      <Exercises exercisesToShow={exercisesToShow} />
     </Box>
   )
 }

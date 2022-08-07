@@ -20,11 +20,11 @@ const Navbar = () => {
       </Link>
       <Stack
         direction='row'
-        gap='30px'
+        gap='40px'
         fontSize='24px'
         alignItems='flex-end'
         sx={{ 
-          gap: { sm: '30px', xs: '10px' }
+          gap: { sm: '40px', xs: '20px' }
         }}
       >
         <Link to='/' style={{
@@ -38,14 +38,7 @@ const Navbar = () => {
           color: '#3A1212'
         }}>
           <Typography variant='h6' component='h1'>Exercises</Typography>
-        </a>
-        <a href='#searchBox' style={{
-          textDecoration: 'none',
-          color: '#3A1212'
-        }}>
-          <Typography variant='h6' component='h1'>Explore</Typography>
-        </a>
-        
+        </a>        
       </Stack>
     </Stack>
   )

@@ -8,7 +8,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
 
   return (
     <Box p='20px' sx={{ marginTop: { lg: '100px', xs: '20px' }}}>
-      <Typography variant='h4' mb='33px'>
+      <Typography variant='h4' mb='33px' ml='10px'>
         Watch some {` `}
         <a href={`https://www.youtube.com/results?search_query=${name}`}
           target="_blank" rel='noreferrer'
@@ -17,7 +17,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
         </a>
         {` `} exercise videos
       </Typography>
-      <Stack direction='row' justifyContent='flex-start' flexWrap='wrap' alignItems='center'
+      <Stack direction='row' justifyContent='center' flexWrap='wrap' alignItems='center'
         sx={{
           flexDirection: 'row',
           rowGap: '10px',

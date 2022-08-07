@@ -1,4 +1,4 @@
-import { Box, Typography, Button } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import HeroBannerImage from '../assets/images/banner-transparent.png'
 
 const HeroBanner = () => {
@@ -20,13 +20,6 @@ const HeroBanner = () => {
       <Typography color='#1A535C' fontSize='22px' lineHeight='35px' mb={4}>
         Check out hundreds of awesome exercises here
       </Typography>
-      <Button href='#searchBox' sx={{
-        backgroundColor: '#1a535c', 
-        color: '#F7FFF7',
-        padding: '10px'
-      }}>
-        Explore Exercises
-      </Button>
     </Box>
   )
 }

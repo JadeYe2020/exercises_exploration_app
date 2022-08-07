@@ -1,62 +1,61 @@
-import { useState, useEffect } from 'react'
-import { apiOptions, fetchData, baseUrl } from '../utils/fetchData'
+import { useState } from 'react'
 import ExerciseCard from './ExerciseCard'
 import { Pagination, Box, Stack, Typography } from "@mui/material"
 
-const Exercises = ({ exercises, setExercises, bodyPart }) => {
+const Exercises = ({ exercisesToShow }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const exercisesPerPage= 9
 
   const indexOfFirstOnNextPage = currentPage * exercisesPerPage
   const indexOfFirstOnCurrPage = indexOfFirstOnNextPage - exercisesPerPage
-  const exercisesOnCurrPage = exercises.slice(indexOfFirstOnCurrPage, indexOfFirstOnNextPage)
+  const exercisesOnCurrPage = exercisesToShow.slice(indexOfFirstOnCurrPage, indexOfFirstOnNextPage)
 
   const paginate = (e, value) => {
     setCurrentPage(value)
     window.scrollTo({ top: 1800, behavior: 'smooth' })
   }
 
-  useEffect(() => {
-    const fetchExercisesData = async () => {
-      let exercisesData = []
+  console.log('ExercisesToShow in Exercises.js', exercisesToShow)
 
-      if (bodyPart === 'all') {
-        exercisesData = await fetchData(`${baseUrl}`, apiOptions)
-      } else {
-        exercisesData = await fetchData(`${baseUrl}/bodyPart/${bodyPart}`, apiOptions)
-      }
-      setExercises(exercisesData)
-    }
-    fetchExercisesData()    
-
-  }, [bodyPart, setExercises])
-
-  return (
-    <Box id='exercises' mt='50px' p='20px'
-      sx={{mt: { lg: '110px' }}}
-    >
-      <Typography variant='h3' mb='46px'>
-        Showing Results
-      </Typography>
-      <Stack direction='row' flexWrap='wrap' justifyContent='center'
-        sx={{ gap: { lg: '110px', xs: '50px' } }}
+  if (exercisesToShow.length) {
+    return (
+      <Box id='exercises' mt='50px' p='20px'
+        sx={{mt: { lg: '80px' }}}
       >
-        {exercisesOnCurrPage.map((exercise, index) => (
-          <ExerciseCard key={index} exercise={exercise} />
-        ))}
-      </Stack>
-      <Stack alignItems='center' mt='100px'>
-        {exercises.length > exercisesPerPage && (
-          <Pagination color='standard' shape='rounded' size='large'
-            count={Math.ceil(exercises.length / exercisesPerPage)}
-            page={currentPage}
-            onChange={paginate}
-          />
-        )}
-
-      </Stack>
-    </Box>
-  )
+        <Typography variant='h3' mb='46px' textTransform='capitalize'>
+          Showing Results
+        </Typography>
+        <Stack direction='row' flexWrap='wrap' justifyContent='center'
+          sx={{ gap: { lg: '110px', xs: '50px' } }}
+        >
+          {exercisesOnCurrPage.map((exercise, index) => (
+            <ExerciseCard key={index} exercise={exercise} />
+          ))}
+        </Stack>
+        <Stack alignItems='center' mt='100px'>
+          {exercisesToShow.length > exercisesPerPage && (
+            <Pagination color='standard' shape='rounded' size='large'
+              count={Math.ceil(exercisesToShow.length / exercisesPerPage)}
+              page={currentPage}
+              onChange={paginate}
+            />
+          )}
+  
+        </Stack>
+      </Box>
+    )
+  } else {
+    return (
+      <Box id='exercises' mt='50px' p='20px'
+        sx={{mt: { lg: '80px' }}}
+      >
+        <Typography variant='h3' mb='46px' textTransform='capitalize'>
+          Oops! No exercise found. Please try some other keywords
+        </Typography>
+      </Box>
+    )
+  }
+  
 }
 
 export default Exercises

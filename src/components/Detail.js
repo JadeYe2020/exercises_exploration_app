@@ -42,7 +42,6 @@ const Detail = ({ exerciseDetail }) => {
             </Typography>
           </Stack>
         ))}
-
       </Stack>
     </Stack>
   )
