@@ -15,10 +15,10 @@ const HeroBanner = ({ bodyParts, setExercisesToShow, bodyPart, setBodyPart, allE
         <Typography color='#1A535C' fontWeight='600' fontSize='26px'>
           Find any exercise
         </Typography>
-        <Typography color='#1A535C' fontWeight='700' mb='23px' mt='30px' sx={{
-          fontSize: { lg: '44px', xs: '40px'}
+        <Typography color='#1A535C' fontWeight='700' mb='23px' mt='30px'
+          sx={{ fontSize: { lg: '44px', xs: '40px'}
         }}>
-          that works for you!
+          That Works For You!
         </Typography>
         <Typography color='#1A535C' fontSize='22px' lineHeight='35px' mb={4}>
           Check out hundreds of awesome exercises here
