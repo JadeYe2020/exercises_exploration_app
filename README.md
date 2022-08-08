@@ -1,19 +1,22 @@
 # Workouts Exploration App
 
-[screenshots of the 2 pages]
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/71286765/183487658-07b3b89b-7dd5-49c2-afb8-140267823b2e.png">  
+  <img src="https://user-images.githubusercontent.com/71286765/183488145-e0c76e24-daba-42a6-8961-f3c19c06c516.png">
+</p>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## How I worked on this project
 My goal was to build a web application that everyone can benefit from, using some awesome APIs.
-- I built this app based on JavaScript Mastery's gym app design: [Screenshot of designs]
-- I refactored the stateful logic and API data-fetching process to minimize the number of requests, slowing down the consumption of monthly free quota of API calls while speeding up the application.[Link to example code on GitHub]
+- I built this app based on JavaScript Mastery's gym app design: [Screenshot of design](https://user-images.githubusercontent.com/71286765/183489896-cee349d6-214f-4caf-bfdf-40340b891b1f.png)
+
+- I refactored the stateful logic and API data-fetching process to minimize the number of requests, slowing down the consumption of monthly free quota of API calls while speeding up the application: [Example code](src/pages/Home.js)
 
 ## How to navigate this project
-- The application fetches data from the ExerciseDB API and the Youtube Search And Download API: Examples for the request [link to code on
-GitHub]
-- Somewhat complex stateful logic: [Link to example code on GitHub]
-- Responsive CSS using Material UI's system props: [Link to example code on GitHub]
+- The application fetches data from the ExerciseDB API and the Youtube Search And Download API: [Example for the requests](https://github.com/JadeYe2020/workouts_exploration_app/blob/3184fd71d43e03fafbbc72ea00d8ef8945b2e8e3/src/pages/ExerciseDetail.js#L14-L24), [fetchData function](src/utils/fetchData.js)
+- Somewhat complex stateful logic: [Example code](https://github.com/JadeYe2020/workouts_exploration_app/blob/3184fd71d43e03fafbbc72ea00d8ef8945b2e8e3/src/components/Search.js#L5-L22)
+- Responsive CSS using Material UI's system props: [Example code](https://github.com/JadeYe2020/workouts_exploration_app/blob/3184fd71d43e03fafbbc72ea00d8ef8945b2e8e3/src/components/Navbar.js#L13-L19)
 
 ## Why I built the project this way
 - Material UI is an open-source React component library that implements Google's Material Design. It's a collection of prebuilt components that are ready for use in production right out of the box. It saved me some time on adjusting the styles and layouts.
