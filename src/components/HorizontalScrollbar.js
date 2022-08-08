@@ -27,7 +27,7 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isCatalogue, allExer
           key={item.id || item}
           itemId={item.id || item}
           title={item.id || item}
-          m='0 40px'
+          sx={{ m: {lg: '0 40px', xs: '0 20px'}}}
         >
           { isCatalogue ?
             <CategoryCards 
