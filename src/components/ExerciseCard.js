@@ -14,7 +14,7 @@ const ExerciseCard = ({ exercise }) => {
   return (
     <Link to={`/exercise/${exercise.id}`} className='exercise-card'>
       <img src={exercise.gifUrl} alt={exercise.name} loading='lazy' />
-      <Stack direction='row'>
+      <Stack direction='row' flexWrap='wrap' rowGap={1}>
         <Chip label={exercise.bodyPart} sx={{...chipStyle, backgroundColor: '#FF6B6B'}} />
         <Chip label={exercise.target} sx={{...chipStyle, backgroundColor: '#4ECDC4'}} />
         <Chip label={exercise.equipment} sx={{...chipStyle, backgroundColor: '#FFE66D', color: '#000'}} />

@@ -15,7 +15,7 @@ const Exercises = ({ exercisesToShow, hasResults }) => {
     window.scrollTo({ top: 1800, behavior: 'smooth' })
   }
 
-  console.log('ExercisesToShow in Exercises.js', exercisesToShow)
+  // console.log('ExercisesToShow in Exercises.js', exercisesToShow)
   
   if (hasResults) {
     return (
