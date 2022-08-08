@@ -4,25 +4,27 @@ import { Stack, Typography } from '@mui/material'
 import Icon from '../assets/icons/muscle.png'
 
 const CategoryCards = ({ item, setBodyPart, bodyPart, allExercises, setExercisesToShow, setKeyword, setHasResults }) => {
+  const pickBodyPart = () => {
+    setBodyPart(item)
+    let filteredData = []
+    if (item !== 'all') {
+      filteredData = allExercises.filter((exercise) => exercise.bodyPart === item )
+    } else { filteredData = allExercises }
+    
+    setExercisesToShow(filteredData)
+    // reset searchbox
+    setKeyword('')
+    // reset results section
+    setHasResults(true)
+    // scroll down to specific type of exercises
+    window.location.href='#exercises'
+  }
+  
   return (
     <Stack
       className='bodyPart-card'
       type='button'
-      onClick={() => {
-        setBodyPart(item)
-        let filteredData = []
-        if (item !== 'all') {
-          filteredData = allExercises.filter((exercise) => exercise.bodyPart === item )
-        } else { filteredData = allExercises }
-        
-        setExercisesToShow(filteredData)
-        // reset searchbox
-        setKeyword('')
-        // reset results section
-        setHasResults(true)
-        // scroll down to specific type of exercises
-        window.location.href='#exercises'
-      }}
+      onClick={pickBodyPart}
       alignItems='center'
       justifyContent='center'
       sx={{
