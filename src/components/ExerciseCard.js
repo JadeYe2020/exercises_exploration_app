@@ -9,7 +9,7 @@ const ExerciseCard = ({ exercise }) => {
     fontSize: '14px', 
     borderRadius: '20px',
     textTransform: 'capitalize'
-}
+  }
 
   return (
     <Link to={`/exercise/${exercise.id}`} className='exercise-card'>

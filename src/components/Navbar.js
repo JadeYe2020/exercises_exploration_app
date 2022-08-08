@@ -34,12 +34,12 @@ const Navbar = () => {
         <Link to='/' style={textStyle}>
           <Typography fontWeight='bold' variant='h6' component='h1'>Home</Typography>
         </Link>
-        <Link to='/#exercises' style={textStyle}>
-          <Typography onClick={() => window.location.href='#exercises'} 
+        <a href='#exercises' style={textStyle}>
+          <Typography  
             fontWeight='bold' variant='h6' component='h1'>
             Exercises
           </Typography>
-        </Link>
+        </a>
       </Stack>
     </Stack>
   )

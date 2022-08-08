@@ -13,8 +13,8 @@ const Detail = ({ exerciseDetail }) => {
         <Typography variant='h4' textTransform='capitalize'>
           {name}
         </Typography>
-        {bulletPoints.map((point) => (
-          <Stack key={point} direction='row' alignItems='center' gap='24px'>
+        {bulletPoints.map((point, index) => (
+          <Stack key={index} direction='row' alignItems='center' gap='24px'>
             <GiMuscleUp color='#1A535C' size='48px' />
             <Typography variant='h6' textTransform='capitalize'>
               {point}
